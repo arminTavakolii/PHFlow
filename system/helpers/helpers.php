@@ -49,3 +49,20 @@ function allFlashes()
         return false;
     }
 }
+
+function error($name, $message = null)
+{
+    if(empty($message))
+    {
+        if (isset($_SESSION["temporary_errorFlash"][$name])) {
+            $temporary = $_SESSION["temporary_errorFlash"][$name];
+            unset($_SESSION["temporary_errorFlash"][$name]);
+            return $temporary;
+        }
+        else{
+            return false;
+        }
+    }else{
+        $_SESSION["errorFlash"][$name] = $message;
+    }
+}
