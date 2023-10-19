@@ -66,3 +66,14 @@ function error($name, $message = null)
         $_SESSION["errorFlash"][$name] = $message;
     }
 }
+
+function errorExists($name = null)
+{
+  if($name === null)
+  {
+      return isset($_SESSION['temporary_errorFlash']) === true ? count($_SESSION['temporary_errorFlash']) : false;
+  }
+  else{
+    return isset($_SESSION['temporary_errorFlash'][$name]) === true ? true : false;
+  }
+}
