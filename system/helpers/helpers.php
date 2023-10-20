@@ -77,3 +77,15 @@ function errorExists($name = null)
     return isset($_SESSION['temporary_errorFlash'][$name]) === true ? true : false;
   }
 }
+
+function allErrors()
+{
+    if (isset($_SESSION["temporary_errorFlash"])) {
+        $temporary = $_SESSION["temporary_errorFlash"];
+        unset($_SESSION["temporary_errorFlash"]);
+        return $temporary;
+    }
+    else{
+        return false;
+    }
+}
