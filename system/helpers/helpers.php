@@ -96,3 +96,11 @@ function currentDomain()
     $currentUrl = $_SERVER['HTTP_HOST'];
     return $httpProtocol.$currentUrl;
 }
+
+function redirect($url)
+{
+    $url = trim($url, '/ ');
+    $url = strpos($url, currentDomain()) === 0 ?  $url : currentDomain() . '/' . $url;
+    header("Location: ".$url);
+    exit;
+}
