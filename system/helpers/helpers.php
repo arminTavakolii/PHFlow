@@ -104,3 +104,9 @@ function redirect($url)
     header("Location: ".$url);
     exit;
 }
+
+function back()
+{
+    $http_referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+    redirect($http_referer);
+}
