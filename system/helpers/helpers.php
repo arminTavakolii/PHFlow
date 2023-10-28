@@ -120,3 +120,18 @@ function url($url)
 {
     return currentDomain().("/".trim($url, "/ "));
 }
+
+function findRouteByName($name)
+{
+    global $routes;
+    $allRoutes = array_merge($routes['get'], $routes['post'], $routes['put'], $routes['delete']);
+    $route = null;
+    foreach($allRoutes as $element)
+    {
+        if($element['name'] == $name && $element['name'] !== null){
+            $route = $element['url'];
+              break;
+        }
+    }
+    return $route;
+}
