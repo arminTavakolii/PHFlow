@@ -135,3 +135,29 @@ function findRouteByName($name)
     }
     return $route;
 }
+
+function route($name, $params = [])
+{
+    if(!is_array($params))
+    {
+        throw new Exception('route params must be array!');
+    }
+
+    $route = findRouteByName($name);
+    if($route === null)
+    {
+        throw new Exception('route not found');
+    }
+    $params = array_reverse($params);
+    $routeParamsMatch = [];
+    preg_match_all("/{[^}.]*}/", $route, $routeParamsMatch);
+    if(count($routeParamsMatch[0]) > count($params))
+    {
+        throw new Exception('route params not enough!!');
+    }
+    foreach($routeParamsMatch[0] as $key => $routeMatch)
+    {
+        $route = str_replace($routeMatch, array_pop($params), $route);
+    }
+    return currentDomain()."/".trim($route, " /");
+}
