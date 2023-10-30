@@ -161,3 +161,8 @@ function route($name, $params = [])
     }
     return currentDomain()."/".trim($route, " /");
 }
+
+function generateToken()
+{
+    return bin2hex(openssl_random_pseudo_bytes(32));
+}
