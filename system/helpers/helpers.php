@@ -166,3 +166,23 @@ function generateToken()
 {
     return bin2hex(openssl_random_pseudo_bytes(32));
 }
+
+function methodField()
+{
+    $method_field = strtolower($_SERVER['REQUEST_METHOD']);
+    if($method_field == 'post')
+    {
+        if(isset($_POST['_method']))
+        {
+            if($_POST['_method'] == 'put')
+            {
+                $method_field = 'put';
+            }
+            elseif($_POST['_method'] == 'delete')
+            {
+                $method_field = 'delete';
+            }
+        }
+    }
+    return $method_field;
+}
