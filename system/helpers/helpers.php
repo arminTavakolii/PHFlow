@@ -186,3 +186,14 @@ function methodField()
     }
     return $method_field;
 }
+
+function array_dot($array, $return_array = array(), $return_key = '') {
+    foreach ($array as $key => $value) {
+        if (is_array($value)) {
+            $return_array = array_merge($return_array, array_dot($value, $return_array, $return_key . $key . '.'));
+        } else {
+            $return_array[$return_key . $key] = $value;
+        }
+    }
+    return $return_array;
+}
