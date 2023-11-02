@@ -197,3 +197,8 @@ function array_dot($array, $return_array = array(), $return_key = '') {
     }
     return $return_array;
 }
+
+function currentUrl()
+{
+    return currentDomain() . $_SERVER['REQUEST_URI'];
+}
