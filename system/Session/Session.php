@@ -15,4 +15,10 @@ class Session
         return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
     }
 
+    public function remove($name)
+    {
+        if(isset($_SESSION[$name]))
+        unset($_SESSION[$name]);
+    }
+
 }
