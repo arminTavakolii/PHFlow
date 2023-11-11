@@ -21,4 +21,10 @@ class Session
         unset($_SESSION[$name]);
     }
 
+    public static function __callStatic($name, $arguments)
+    {
+        $instance = new self();
+        return call_user_func_array([$instance,$name], $arguments);
+    }
+
 }
