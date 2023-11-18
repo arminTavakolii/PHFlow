@@ -43,4 +43,19 @@ class Auth
         return true;
     }
 
+    private function checkLoginMethod()
+    {
+        if(!Session::get('user'))
+        {
+            return false;
+        }
+        $user = User::find(Session::get('user'));
+        if(empty($user))
+        {
+           return false;
+        }
+        else
+        return true;
+    }
+
 }
