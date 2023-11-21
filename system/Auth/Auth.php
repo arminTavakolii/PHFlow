@@ -78,4 +78,19 @@ class Auth
         }
     }
 
+    private function loginByIdMethod($id)
+    {
+        $user = User::find($id);
+        if(empty($user))
+        {
+            error("login", "کاربر وجود ندارد");
+            return false;
+        }
+        else
+        {
+            Session::set("user", $user->id);
+            return true;
+        }
+    }
+
 }
