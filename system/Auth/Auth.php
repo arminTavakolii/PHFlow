@@ -58,4 +58,24 @@ class Auth
         return true;
     }
 
+    private function loginByEmailMethod($email, $password)
+    {
+        $user = User::where('email', $email)->get();
+        if(empty($user))
+        {
+            error('login', 'کاربر وجود ندارد');
+            return false;
+        }
+        if(password_verify($password, $user[0]->password) && $user[0]->is_active == 1)
+        {
+            Session::set("user", $user[0]->id);
+            return true;
+        }
+        else
+        {
+            error("login", 'کلمه ی عبور اشتباه است');
+            return false;
+        }
+    }
+
 }
