@@ -98,4 +98,9 @@ class Auth
         Session::remove('user');
     }
 
+    public function __call($name, $arguments)
+    {
+        return $this->methodCaller($name, $arguments);
+    }
+
 }
