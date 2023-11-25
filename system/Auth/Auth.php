@@ -93,4 +93,9 @@ class Auth
         }
     }
 
+    private function logoutMethod()
+    {
+        Session::remove('user');
+    }
+
 }
