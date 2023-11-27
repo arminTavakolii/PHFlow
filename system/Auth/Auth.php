@@ -103,4 +103,10 @@ class Auth
         return $this->methodCaller($name, $arguments);
     }
 
+    public static function __callStatic($name, $arguments)
+    {
+        $instance = new self();
+        return $instance->methodCaller($name, $arguments);
+    }
+
 }
