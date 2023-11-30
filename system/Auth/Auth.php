@@ -109,4 +109,11 @@ class Auth
         return $instance->methodCaller($name, $arguments);
     }
 
+    private function methodCaller($method, $arguments)
+    {
+        $suffix = 'Method';
+        $methodName = $method.$suffix;
+        return call_user_func_array(array($this, $methodName), $arguments);
+    }
+
 }
