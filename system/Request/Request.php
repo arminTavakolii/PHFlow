@@ -14,6 +14,7 @@ class Request
     use HasValidationRules,HasFileValidationRules,HasRunValidation;
     
     protected $errorExist = false;
+    protected $request;
     
 }
 
