@@ -11,6 +11,9 @@ use System\Request\Traits\HasValidationRules;
 class Request
 {
 
+    use HasValidationRules,HasFileValidationRules,HasRunValidation;
+    
+    protected $errorExist = false;
     
 }
 
