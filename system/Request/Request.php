@@ -16,6 +16,7 @@ class Request
     protected $errorExist = false;
     protected $request;
     protected $files = null;
+    protected $errorVariablesName = [];
     
 }
 
