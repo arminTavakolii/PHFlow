@@ -32,3 +32,8 @@ public function __construct()
         $this->errorRedirect();
     }
 
+    protected function rules()
+    {
+        return [];
+    }
+
