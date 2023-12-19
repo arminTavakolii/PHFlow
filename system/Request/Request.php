@@ -20,3 +20,15 @@ class Request
     
 }
 
+public function __construct()
+    {
+        if(isset($_POST)) {
+            $this->postAttributes();
+        }
+        if(!empty($_FILES))
+            $this->files = $_FILES;
+        $rules = $this->rules();
+        empty($rules) ? : $this->run($rules);
+        $this->errorRedirect();
+    }
+
