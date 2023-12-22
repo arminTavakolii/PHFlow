@@ -36,4 +36,23 @@ public function __construct()
     {
         return [];
     }
+    
+    protected function run($rules){
+        foreach($rules as $att => $values){
+            $ruleArray = explode('|', $values);
+            if(in_array('file', $ruleArray))
+            {
+                unset($ruleArray[array_search('file', $ruleArray)]);
+                $this->fileValidation($att, $ruleArray);
+            }
+            elseif(in_array('number', $ruleArray))
+            {
+                $this->numberValidation($att, $ruleArray);
+            }
+            else
+            {
+                $this->normalValidation($att, $ruleArray);
+            }
+        }
+    }
 
