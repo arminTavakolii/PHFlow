@@ -36,7 +36,7 @@ public function __construct()
     {
         return [];
     }
-    
+
     protected function run($rules){
         foreach($rules as $att => $values){
             $ruleArray = explode('|', $values);
@@ -54,5 +54,9 @@ public function __construct()
                 $this->normalValidation($att, $ruleArray);
             }
         }
+    }
+
+    public function file($name){
+        return isset($this->files[$name]) ? $this->files[$name] : false;
     }
 
