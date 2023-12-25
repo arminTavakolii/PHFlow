@@ -68,3 +68,7 @@ public function __construct()
         }
     }
 
+    public function all(){
+        return $this->request;
+     }
+
