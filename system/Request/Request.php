@@ -60,3 +60,11 @@ public function __construct()
         return isset($this->files[$name]) ? $this->files[$name] : false;
     }
 
+    protected function postAttributes()
+    {
+        foreach($_POST as $key => $value){
+            $this->$key = htmlentities($value);
+            $this->request[$key] = htmlentities($value);
+        }
+    }
+
