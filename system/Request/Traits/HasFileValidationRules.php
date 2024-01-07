@@ -24,3 +24,12 @@ trait HasFileValidationRules
         }
     }
 
+    protected function fileRequired($name)
+    {
+        if(!isset($this->files[$name]['name']) || empty($this->files[$name]['name']) && $this->checkFirstError($name)){
+            $this->setError($name, "$name is required");
+        }
+    }
+    
+}
+
