@@ -40,6 +40,11 @@ trait HasFileValidationRules
             }
         }
     }
+
+    protected function maxFile($name, $size)
+    {
+        
+    }
     
 }
 
