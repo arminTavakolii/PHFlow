@@ -50,6 +50,11 @@ trait HasFileValidationRules
             }
         }
     }
+    protected function minFile($name, $size)
+    {
+        
+        
+    }
     
 }
 
