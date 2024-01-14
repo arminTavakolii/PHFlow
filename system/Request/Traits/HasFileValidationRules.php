@@ -52,8 +52,12 @@ trait HasFileValidationRules
     }
     protected function minFile($name, $size)
     {
-        
-        
+        $size = $size * 1024;
+        if ($this->checkFirstError($name) && $this->checkFileExist($name)) {
+            if($this->files[$name]['size'] < $size){
+                $this->setError($name, "$name size must be upper than " . ($size / 1024) . " kb");
+            }
+        }
     }
     
 }
