@@ -14,6 +14,12 @@ trait HasValidationRules
             }
         }
     }
+
+    protected function minStr($name, $count)
+    {
+        
+    }
+
 }
 
 
