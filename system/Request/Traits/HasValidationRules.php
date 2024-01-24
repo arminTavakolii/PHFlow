@@ -24,6 +24,11 @@ trait HasValidationRules
         }
     }
 
+    protected function required($name)
+    {
+        
+    }
+
 }
 
 
