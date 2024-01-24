@@ -17,7 +17,11 @@ trait HasValidationRules
 
     protected function minStr($name, $count)
     {
-        
+        if($this->checkFieldExist($name)){
+            if (strlen($this->request[$name]) <= $count && $this->checkFirstError($name)){
+                $this->setError($name, "$name min length equal or upper than $count character");
+            }
+        }
     }
 
 }
