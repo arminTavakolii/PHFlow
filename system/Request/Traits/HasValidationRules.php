@@ -31,6 +31,11 @@ trait HasValidationRules
         }
     }
 
+    protected function number($name)
+    {
+        
+    }
+
 }
 
 
