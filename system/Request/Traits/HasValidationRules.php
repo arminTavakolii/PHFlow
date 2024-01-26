@@ -26,7 +26,9 @@ trait HasValidationRules
 
     protected function required($name)
     {
-        
+        if((!isset($this->request[$name]) || $this->request[$name] === '') && $this->checkFirstError($name)){
+            $this->setError($name,"$name is required");
+        }
     }
 
 }
