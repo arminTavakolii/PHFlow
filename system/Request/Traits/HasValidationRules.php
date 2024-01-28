@@ -41,6 +41,11 @@ trait HasValidationRules
         }
     }
 
+    protected function date($name)
+    {
+        
+    }
+
 }
 
 
