@@ -50,6 +50,11 @@ trait HasValidationRules
          }
     }
 
+    protected function email($name)
+    {
+        
+    }
+
 }
 
 
