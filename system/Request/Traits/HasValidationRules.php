@@ -52,7 +52,12 @@ trait HasValidationRules
 
     protected function email($name)
     {
-        
+        if($this->checkFieldExist($name)){
+            if(!filter_var($this->request[$name], FILTER_VALIDATE_EMAIL) && $this->checkFirstError($name))
+            {
+                $this->setError($name,"$name must be email format");
+            }
+        }
     }
 
 }
