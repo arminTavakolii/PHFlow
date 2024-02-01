@@ -60,6 +60,11 @@ trait HasValidationRules
         }
     }
 
+    public function existsIn()
+    {
+        
+    }
+
 }
 
 
