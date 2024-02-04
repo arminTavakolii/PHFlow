@@ -62,7 +62,18 @@ trait HasValidationRules
 
     public function existsIn()
     {
-        
+        if($this->checkFieldExist($name)){
+            if($this->checkFirstError($name)){
+                $value = $this->$name;
+                $sql = "SELECT COUNT(*) FROM $table WHERE $field = ?";
+                $statement = DBConnection::getDBConnectionInstance()->prepare($sql);
+                $statement->execute([$value]);
+                $result = $statement->fetchColumn();
+                if($result == 0 || $result === false){
+                    $this->setError($name,"$name not already exist");
+                }
+            }
+        }
     }
 
 }
