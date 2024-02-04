@@ -60,7 +60,7 @@ trait HasValidationRules
         }
     }
 
-    public function existsIn()
+    public function existsIn($name, $table, $field = "id")
     {
         if($this->checkFieldExist($name)){
             if($this->checkFirstError($name)){
@@ -74,6 +74,11 @@ trait HasValidationRules
                 }
             }
         }
+    }
+
+    public function unique($name, $table, $field = "id")
+    {
+        
     }
 
 }
