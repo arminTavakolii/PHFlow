@@ -78,7 +78,18 @@ trait HasValidationRules
 
     public function unique($name, $table, $field = "id")
     {
-        
+        if($this->checkFieldExist($name)){
+            if($this->checkFirstError($name)){
+                $value = $this->$name;
+                $sql = "SELECT COUNT(*) FROM $table WHERE $field = ?";
+                $statement = DBConnection::getDBConnectionInstance()->prepare($sql);
+                $statement->execute([$value]);
+                $result = $statement->fetchColumn();
+                if($result != 0){
+                    $this->setError($name,"$name must be unique");
+                }
+            }
+        }
     }
 
 }
