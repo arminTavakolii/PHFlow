@@ -92,8 +92,15 @@ trait HasValidationRules
 
     protected function confirm($name)
     {
-        
-        
+        if ($this->checkFieldExist($name)) {
+            $fieldName = "confirm_".$name;
+            if(!isset($this->$fieldName)){
+                $this->setError($name, " $name $fieldName not exist");
+            }
+            elseif($this->$fieldName != $this->$name){
+                $this->setError($name, "$name confirmation does not match");
+            }
+        }
     }
     
 }
