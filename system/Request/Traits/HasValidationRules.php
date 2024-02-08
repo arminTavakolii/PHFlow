@@ -6,6 +6,11 @@ use System\Database\DBConnection\DBConnection;
 
 trait HasValidationRules
 {
+
+    public function numberValidation($name, $ruleArray)
+    {
+        
+    }
     protected function maxStr($name, $count)
     {
         if ($this->checkFieldExist($name)) {
