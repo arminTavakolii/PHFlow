@@ -19,5 +19,10 @@ trait HasRunValidation
         return false;
     }
 
+    private function checkFieldExist($name)
+    {
+        
+    }
+
     
 }
