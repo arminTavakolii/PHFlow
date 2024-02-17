@@ -21,8 +21,9 @@ trait HasRunValidation
 
     private function checkFieldExist($name)
     {
-        
+        return (isset($this->request[$name]) && !empty($this->request[$name])) ? true : false; 
     }
+
 
     
 }
