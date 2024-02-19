@@ -24,6 +24,10 @@ trait HasRunValidation
         return (isset($this->request[$name]) && !empty($this->request[$name])) ? true : false; 
     }
 
+    private function checkFileExist($name)
+    {
+    }
+
 
     
 }
