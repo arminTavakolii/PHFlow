@@ -36,7 +36,9 @@ trait HasRunValidation
 
     private function setError($name, $errorMessage)
     {
-        
+        array_push($this->errorVariablesName, $name);
+        error($name, $errorMessage);
+        $this->errorExist = true;
     }
 
 
