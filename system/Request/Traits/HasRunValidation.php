@@ -34,6 +34,11 @@ trait HasRunValidation
         return false;
     }
 
+    private function setError($name, $errorMessage)
+    {
+        
+    }
+
 
     
 }
