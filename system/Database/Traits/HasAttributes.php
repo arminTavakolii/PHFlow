@@ -2,8 +2,9 @@
 
 namespace System\Database\Traits;
 
-trait HasAttributes{
-
-
-
+trait HasAttributes
+{
+    private function registerAttribute($object, string $attribute, $value)
+    {
+    }
 }
