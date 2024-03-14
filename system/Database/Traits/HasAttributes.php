@@ -8,4 +8,9 @@ trait HasAttributes
     {
         $this->inCastsAttributes($attribute) == true ? $object->$attribute = $this->castDecodeValue($attribute, $value) : $object->$attribute = $value;
     }
+
+
+    protected function arrayToAttributes(array $array, $object = null)
+    {
+    }
 }
