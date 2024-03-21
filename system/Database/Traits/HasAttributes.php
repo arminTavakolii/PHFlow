@@ -23,4 +23,8 @@ trait HasAttributes
        }
        return $object;
     }
+
+    protected function arrayToObjects(array $array){
+    }
+
 }
