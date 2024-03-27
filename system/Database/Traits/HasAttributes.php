@@ -12,19 +12,27 @@ trait HasAttributes
 
     protected function arrayToAttributes(array $array, $object = null)
     {
-        if(!$object){
+        if (!$object) {
             $className = get_called_class();
             $object = new $className;
         }
-       foreach($array as $attribute=>$value){
-        if($this->inHiddenAttributes($attribute))
-        continue;
-        $this->registerAttribute($object, $attribute, $value);
-       }
-       return $object;
+        foreach ($array as $attribute => $value) {
+            if ($this->inHiddenAttributes($attribute))
+                continue;
+            $this->registerAttribute($object, $attribute, $value);
+        }
+        return $object;
     }
 
-    protected function arrayToObjects(array $array){
-    }
+    protected function arrayToObjects(array $array)
+    {
+        $collection = [];
 
+        foreach ($array as $value) {
+            $object = $this->arrayToAttributes($value);
+            array_push($collection, $object);
+        }
+
+        $this->collection = $collection;
+    }
 }
