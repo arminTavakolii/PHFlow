@@ -35,4 +35,11 @@ trait HasAttributes
 
         $this->collection = $collection;
     }
+
+    private function inHiddenAttributes($attribute){
+
+        
+
+    }
+
 }
