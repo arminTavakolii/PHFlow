@@ -36,10 +36,8 @@ trait HasAttributes
         $this->collection = $collection;
     }
 
-    private function inHiddenAttributes($attribute){
-
-        
-
+    private function inHiddenAttributes($attribute)
+    {
+        return in_array($attribute, $this->hidden);
     }
-
 }
