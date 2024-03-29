@@ -40,4 +40,10 @@ trait HasAttributes
     {
         return in_array($attribute, $this->hidden);
     }
+
+    private function inCastsAttributes($attribute){
+
+        
+
+    }
 }
