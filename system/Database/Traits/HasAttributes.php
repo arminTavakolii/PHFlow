@@ -43,7 +43,7 @@ trait HasAttributes
 
     private function inCastsAttributes($attribute){
 
-        
+        return in_array($attribute, array_keys($this->casts));
 
     }
 }
