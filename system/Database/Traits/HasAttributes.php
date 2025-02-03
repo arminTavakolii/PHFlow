@@ -49,7 +49,11 @@ trait HasAttributes
 
     private function castDecodeValue($attributeKey, $value){
 
-        
+        if($this->casts[$attributeKey] == 'array' || $this->casts[$attributeKey] == 'object'){
+            return unserialize($value);
+        }
+
+        return $value;
 
     }
 
