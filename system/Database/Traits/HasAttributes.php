@@ -46,4 +46,11 @@ trait HasAttributes
         return in_array($attribute, array_keys($this->casts));
 
     }
+
+    private function castDecodeValue($attributeKey, $value){
+
+        
+
+    }
+
 }
