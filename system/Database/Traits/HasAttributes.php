@@ -59,7 +59,11 @@ trait HasAttributes
 
     private function castEncodeValue($attributeKey, $value){
 
-        
+        if($this->casts[$attributeKey] == 'array' || $this->casts[$attributeKey] == 'object'){
+            return serialize($value);
+        }
+
+        return $value;
     }
 
 }
