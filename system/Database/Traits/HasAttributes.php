@@ -57,4 +57,9 @@ trait HasAttributes
 
     }
 
+    private function castEncodeValue($attributeKey, $value){
+
+        
+    }
+
 }
