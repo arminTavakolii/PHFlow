@@ -68,7 +68,12 @@ trait HasAttributes
 
     private function arrayToCastEncodeValue($values){
 
-        
+        $newArray = [];
+        foreach($values as $attribute=>$value){
+            $this->inCastsAttributes($attribute) == true ? $newArray[$attribute] = $this->castEncodeValue($attribute, $value) : $newArray[$attribute] = $value;
+
+        }   
+        return $newArray;
     }
 
 }
