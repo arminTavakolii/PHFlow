@@ -66,4 +66,9 @@ trait HasAttributes
         return $value;
     }
 
+    private function arrayToCastEncodeValue($values){
+
+        
+    }
+
 }
