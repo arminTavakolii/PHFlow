@@ -8,6 +8,9 @@ trait HasCRUD{
 
     protected function createMethod($values){
         
+        $values = $this->arrayToCastEncodeValue($values);
+        $this->arrayToAttributes($values, $this);
+        return $this->saveMethod();
     }
 
 
