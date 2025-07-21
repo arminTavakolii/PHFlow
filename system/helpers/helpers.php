@@ -6,6 +6,18 @@ function dd($value, $die = true){
     exit();
 }
 
+function view($dir, $vars = [])
+{
+    $viewBuilder = new \System\View\ViewBuilder();
+    $viewBuilder->run($dir);
+    $viewVars = $viewBuilder->vars;
+    $content = $viewBuilder->content;
+    empty($viewVars) ? : extract($viewVars);
+    empty($vars) ? : extract($vars);
+
+    eval(" ?> ".html_entity_decode($content));
+}
+
 function html($text)
 {
     return html_entity_decode($text);
@@ -55,6 +67,7 @@ function allFlashes()
     }
 }
 
+
 function error($name, $message = null)
 {
     if(empty($message))
@@ -94,6 +107,7 @@ function allErrors()
         return false;
     }
 }
+
 
 function currentDomain()
 {
@@ -192,6 +206,7 @@ function methodField()
     return $method_field;
 }
 
+
 function array_dot($array, $return_array = array(), $return_key = '') {
     foreach ($array as $key => $value) {
         if (is_array($value)) {
@@ -202,6 +217,7 @@ function array_dot($array, $return_array = array(), $return_key = '') {
     }
     return $return_array;
 }
+
 
 function currentUrl()
 {

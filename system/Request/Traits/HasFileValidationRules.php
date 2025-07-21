@@ -24,6 +24,7 @@ trait HasFileValidationRules
         }
     }
 
+
     protected function fileRequired($name)
     {
         if(!isset($this->files[$name]['name']) || empty($this->files[$name]['name']) && $this->checkFirstError($name)){
@@ -50,6 +51,7 @@ trait HasFileValidationRules
             }
         }
     }
+
     protected function minFile($name, $size)
     {
         $size = $size * 1024;
@@ -59,6 +61,5 @@ trait HasFileValidationRules
             }
         }
     }
-    
-}
 
+}

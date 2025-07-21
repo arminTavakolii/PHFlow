@@ -3,24 +3,20 @@
 namespace System\Request;
 
 
-
 use System\Request\Traits\HasFileValidationRules;
 use System\Request\Traits\HasRunValidation;
 use System\Request\Traits\HasValidationRules;
 
 class Request
 {
-
     use HasValidationRules,HasFileValidationRules,HasRunValidation;
-    
+
     protected $errorExist = false;
     protected $request;
     protected $files = null;
     protected $errorVariablesName = [];
-    
-}
 
-public function __construct()
+    public function __construct()
     {
         if(isset($_POST)) {
             $this->postAttributes();
@@ -31,6 +27,7 @@ public function __construct()
         empty($rules) ? : $this->run($rules);
         $this->errorRedirect();
     }
+
 
     protected function rules()
     {
@@ -69,6 +66,8 @@ public function __construct()
     }
 
     public function all(){
-        return $this->request;
-     }
+       return $this->request;
+    }
 
+
+}
