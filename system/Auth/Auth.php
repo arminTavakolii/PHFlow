@@ -115,5 +115,4 @@ class Auth
         $methodName = $method.$suffix;
         return call_user_func_array(array($this, $methodName), $arguments);
     }
-
 }

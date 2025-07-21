@@ -11,6 +11,7 @@ trait HasRunValidation
         }
         return back();
     }
+
     private function checkFirstError($name)
     {
         if(!errorExists($name) && !in_array($name, $this->errorVariablesName)){
@@ -21,17 +22,17 @@ trait HasRunValidation
 
     private function checkFieldExist($name)
     {
-        return (isset($this->request[$name]) && !empty($this->request[$name])) ? true : false; 
+        return (isset($this->request[$name]) && !empty($this->request[$name])) ? true : false;
     }
 
     private function checkFileExist($name)
     {
-        if(isset($this->files[$name]['name'])){
-            if(!empty($this->files[$name]['name'])){
-             return true;
-            }
-        }
-        return false;
+       if(isset($this->files[$name]['name'])){
+           if(!empty($this->files[$name]['name'])){
+            return true;
+           }
+       }
+       return false;
     }
 
     private function setError($name, $errorMessage)
@@ -42,5 +43,4 @@ trait HasRunValidation
     }
 
 
-    
 }
